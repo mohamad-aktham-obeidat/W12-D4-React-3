@@ -7,29 +7,48 @@
 </head>
 
 <body>
-  <div id="root"></div>
-  <script>
+  <div id="root">
 
+
+  </div>
+
+  <script>
     // Practice 1 - const, let, freeze
     // Create a variable named "username" that should not be reassigned
     // Create a variable named "loggedIn" that can be reassigned
     // Create a post object with an id and title that is frozen
     // Test whether you can reassign each of the variables
     // Log out each of the variables to the page
+    const userName = 'obeidat';
+    console.log('userName Before Reassigned :', userName);
+
+    let loggedIn = true;
+    console.log('loggedIn :', loggedIn);
+    loggedIn = !loggedIn;
+    console.log('loggedIn :', loggedIn);
+
+    // userName = 'Jozaa';
+    console.log('userName After Reassigned :', userName);
 
 
+    const post = {
+      id: 1,
+      title: 'frozen'
+    }
+    console.log('___________________________________________________________________________');
 
     // Practice 2 - Template Literals
     // Create a variable for firstName and lastName
     // Create a variable called message that can be reassigned
     // Use a template literal to create message like "Hi firstName lastName!"
     // Log out the message to the console
-    const firstName = "";
-    const lastName = ""
+    const firstName = "Mohamad Aktham";
+    const lastName = "Obeidat"
 
-    let message = ``;
+    let message = `HI ${firstName} ${lastName} *.*`;
 
     console.log(message);
+    console.log('___________________________________________________________________________');
 
 
     // Practice 3 - Arrow Functions
@@ -43,6 +62,9 @@
       )
     }
 
+    ArrowName = name => console.log('NAME FROM ARROW FUNCTION:::: ', name);
+    ArrowName('MOHAMAD AKTHAM OBEIDAT')
+    console.log('___________________________________________________________________________');
 
 
     // Practice 4 - .filter() and .map()
@@ -50,8 +72,7 @@
     // Only return the posts that include "post" in the title
     // Map through the array of filtred posts and log out the titles
     // Try writing it by chaining the filter and map together
-    const posts = [
-      {
+    const posts = [{
         id: 1,
         title: "First post"
       },
@@ -65,6 +86,10 @@
       }
     ];
 
+    let filteredPost = posts.filter(result => result.title.includes('post'));
+    console.log(filteredPost.map(result => result.title));
+    console.log('___________________________________________________________________________');
+
 
 
     // Practice 5 - DOM Creation
@@ -73,8 +98,9 @@
     //  to create an h2 with a link and the title of the post
     // Append each of the h2s to the postsContainer
     const postsContainer = document.getElementById("root");
-    const postsArray = [
-      {
+
+
+    const postsArray = [{
         id: 1,
         slug: "#first-post",
         title: "First post"
@@ -91,7 +117,12 @@
       }
     ];
 
-
+    postsArray.map(result => {
+      const h2 = document.createElement('h2');
+      const title = document.createTextNode(result.title);
+      h2.appendChild(title);
+      postsContainer.appendChild(h2);
+    })
   </script>
 </body>
 
