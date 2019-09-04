@@ -10,6 +10,8 @@ const Practice4 = () => {
     url: "https://zacgordon.com",
     twitter: "@zgordon"
   };
+
+  
   return (
     <div className="practice">
       {/*         
